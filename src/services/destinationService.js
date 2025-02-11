@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const  API_URL = "http://localhost:3000/destinations"
+const API_URL = import.meta.env.VITE_API_URL;
 
 export const getDestinations = async () => {
     try {
@@ -8,6 +8,17 @@ export const getDestinations = async () => {
         return response.data;
     } catch (error) {
         console.error("Error al obtener los destinos", error);
+        return [];
+        
+    }
+}
+
+export const getDestinationById = async(id) => {
+    try {
+        const response = await axios.get(`${API_URL}/${id}`)
+        return response.data;
+    } catch (error) {
+        console.error("Error al obtener destino",error);
         return [];
         
     }

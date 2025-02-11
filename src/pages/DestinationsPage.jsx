@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom';
 
 const DestinationPage = () => {
     const [destinations, setDestinations] = useState([]);
-    console.log(destinations)
 
     useEffect(() => {
         const fetchData = async () => {
