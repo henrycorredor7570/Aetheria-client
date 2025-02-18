@@ -42,7 +42,7 @@ const DestinationDetail = () => {
             <Row>
                 <Col md={6}>
                     <Card>
-                        <Card.Img variant='top' src={destination.imageUrl} alt={destination.name}/>
+                        <Card.Img variant='top' src={destination.image_url} alt={destination.name}/>
                         <Card.Body>
                             <Card.Title>{destination.name}</Card.Title>
                             <Card.Text>{destination.description}</Card.Text>
