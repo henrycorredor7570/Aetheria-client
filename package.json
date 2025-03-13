@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "aframe": "^1.6.0",
+    "aframe": "^1.7.0",
+    "aframe-react": "^4.4.0",
     "axios": "^1.7.9",
     "bootstrap": "^5.3.3",
     "dotenv": "^16.4.7",

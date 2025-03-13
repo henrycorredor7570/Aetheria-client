@@ -24,9 +24,9 @@ export const getDestinationById = async(id) => {
     }
 }
 
-export const getPointsOfInterest = async (id) => {
+export const getPointsOfInterestByDestination = async (id) => {
     try {
-        const response = await axios.get(`${API_URL}/pointsofinterest/${id}`);
+        const response = await axios.get(`${API_URL}/pointsofinterest/destination/${id}`);
         return response.data;
     } catch (error) {
         console.error("Error al obtener el punto de interes", error);

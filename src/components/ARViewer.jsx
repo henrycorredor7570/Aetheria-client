@@ -16,7 +16,7 @@ const ARViewer = ({ modelUrl }) => {
     return (
         <div>
             <h3>Explora en Realidad Aumentada</h3>
-            <Scene embedded ref={sceneRef}>
+            <Scene embedded ref={sceneRef} vr-mode-ui="enabled: false"> 
                 <a-assets>
                     <a-asset-item id="model" src={modelUrl}></a-asset-item>
                 </a-assets>

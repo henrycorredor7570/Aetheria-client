@@ -1,3 +1,6 @@
+// Este archivo se encarga de mostrar el detalle de un destino específico, incluyendo su imagen, descripción, 
+// ubicación en un mapa y puntos de interés. También permite visualizar un modelo en realidad aumentada.
+
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { getDestinationById } from '../services/destinationService';
@@ -11,13 +14,20 @@ const DestinationDetail = () => {
     const {id} = useParams();
     const [destination, setDestination ] = useState(null);
     const [loading, setLoading] = useState(true);
-    const [selectedModel, setSelectedModel] = useState("");
+    const [selectedModel, setSelectedModel] = useState("");    
 
     useEffect(()=>{
         const fetchDestination = async() => {
-            const data = await getDestinationById(id);
-            setDestination(data);
-            setLoading(false);
+            try {
+                const data = await getDestinationById(id);
+                console.log(data);
+                
+                setDestination(data);
+            } catch (error) {
+                console.error("Error fetching destination: ", error);
+            } finally {
+                setLoading(false);
+            }
         };
         fetchDestination();
     }, [id]);
@@ -70,32 +80,23 @@ const DestinationDetail = () => {
                     </MapContainer> 
                 </Col>
             </Row>
-
+            
             <Row className='mt-4'>
                 <Col>
-                    <h4>Realidad Aumentada</h4>
-                    <a-scene embedded>
-                        <a-marker preset="hiro">
-                            <a-box position="0 0.5 0" material="color:red"></a-box>
-                        </a-marker>
-                        <a-camera-static></a-camera-static>
-                    </a-scene>
+                    <PointsOfInterest destinationId={id}/>
                 </Col>
-                <div className="container mt-4">
-                    <h2>{destination.name}</h2>
-                    <p>{destination.description}</p>
-
-                    <PointsOfInterest destinationId={destination.id} />
-                    <h3>Realidad Aumentada</h3>
+            </Row>
+            <Row className='mt-4'>
+                <Col> 
+                    <h4>Realidad Aumentada</h4>
                     <button 
                         className="btn btn-primary"
                         onClick={() => handleSelectModel(destination.arModelUrl)}
                     >
                         Ver en AR
                     </button>
-
                     {selectedModel && <ARViewer modelUrl={selectedModel}/>}
-                </div>
+                </Col>
             </Row>
         </Container>
     );
