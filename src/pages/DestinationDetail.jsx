@@ -20,8 +20,6 @@ const DestinationDetail = () => {
         const fetchDestination = async() => {
             try {
                 const data = await getDestinationById(id);
-                console.log(data);
-                
                 setDestination(data);
             } catch (error) {
                 console.error("Error fetching destination: ", error);

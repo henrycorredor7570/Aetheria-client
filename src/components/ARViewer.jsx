@@ -8,7 +8,6 @@ const ARViewer = ({ modelUrl }) => {
         if(sceneRef.current) {
             sceneRef.current.addEventListener("loaded", () => {
                 console.log("AR Scene Loaded");
-                
             })
         }
     }, []);
