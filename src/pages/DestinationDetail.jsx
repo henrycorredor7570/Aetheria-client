@@ -3,31 +3,37 @@
 
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import { getDestinationById } from '../services/destinationService';
+import { getDestinationById, getPointsOfInterestByDestination } from '../services/destinationService';
 import { Container, Row, Col, Card, Spinner } from "react-bootstrap";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import PointsOfInterest from "../components/PointsOfInterest";
+import SearchPointsOfInterest from '../components/SearchPointsOfInterest';
 import ARViewer from "../components/ARViewer";
 import 'leaflet/dist/leaflet.css';
 
 const DestinationDetail = () => {
     const {id} = useParams();
-    const [destination, setDestination ] = useState(null);
+    const [destination, setDestination] = useState(null);
+    const [pointsOfInterest, setPointsOfInterest] = useState([]);
+    const [filteredPoints, setFilteredPoints] = useState([]);
     const [loading, setLoading] = useState(true);
-    const [selectedModel, setSelectedModel] = useState("");    
+    const [selectedModel, setSelectedModel] = useState("");   
 
     useEffect(()=>{
-        const fetchDestination = async() => {
+        const fetchData = async() => {
             try {
-                const data = await getDestinationById(id);
-                setDestination(data);
+                const destinationData = await getDestinationById(id);
+                const pointsData = await getPointsOfInterestByDestination(id);
+                setDestination(destinationData);
+                setPointsOfInterest(pointsData);
+                setFilteredPoints(pointsData);// al inicio todos los puntos se muestran
             } catch (error) {
-                console.error("Error fetching destination: ", error);
+                console.error("Error al cargar los datos: ", error);
             } finally {
                 setLoading(false);
             }
         };
-        fetchDestination();
+        fetchData();
     }, [id]);
 
     const handleSelectModel = (modelUrl) => {
@@ -38,7 +44,7 @@ const DestinationDetail = () => {
         return (
             <Container className='text-center mt-5'>
                 <Spinner animation="border" role="status">
-                    <span className='visually-hidden'>Cargando...</span>
+                    <span className='visually-hidden'>Cargando destino...</span>
                 </Spinner>
             </Container>
         )
@@ -47,7 +53,7 @@ const DestinationDetail = () => {
     if(!destination){
        return(
         <Container className='text-center mt-5'>
-            <h3>Destino no encontrado</h3>
+            <h3>No se encontró el destino</h3>
         </Container>
        )
     }
@@ -78,10 +84,15 @@ const DestinationDetail = () => {
                     </MapContainer> 
                 </Col>
             </Row>
-            
+            <Col md={6}>
+                    <SearchPointsOfInterest
+                        destinationId = {destination.id}
+                        onResults={setFilteredPoints}
+                    />
+            </Col>
             <Row className='mt-4'>
                 <Col>
-                    <PointsOfInterest destinationId={id}/>
+                    <PointsOfInterest points={filteredPoints}/>
                 </Col>
             </Row>
             <Row className='mt-4'>
