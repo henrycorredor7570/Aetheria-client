@@ -60,7 +60,7 @@ const SearchPointsOfInterest = ({ destinationId, onResults }) => { //onResults: 
                 <option value="Museo">Museo</option>
                 <option value="Parque">Parque</option>
             </select>
-        </div>
+        </div> 
     );
 };
 
