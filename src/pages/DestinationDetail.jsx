@@ -24,6 +24,8 @@ const DestinationDetail = () => {
             try {
                 const destinationData = await getDestinationById(id);
                 const pointsData = await getPointsOfInterestByDestination(id);
+                console.log(pointsData);
+                
                 setDestination(destinationData);
                 setPointsOfInterest(pointsData);
                 setFilteredPoints(pointsData);// al inicio todos los puntos se muestran
@@ -87,7 +89,7 @@ const DestinationDetail = () => {
             <Col md={6}>
                     <SearchPointsOfInterest
                         destinationId = {destination.id}
-                        onResults={setFilteredPoints}
+                        onResults={setFilteredPoints} //se estan pasando todos los puntos de interes
                     />
             </Col>
             <Row className='mt-4'>
