@@ -24,8 +24,6 @@ const DestinationDetail = () => {
             try {
                 const destinationData = await getDestinationById(id);
                 const pointsData = await getPointsOfInterestByDestination(id);
-                console.log(pointsData);
-                
                 setDestination(destinationData);
                 setPointsOfInterest(pointsData);
                 setFilteredPoints(pointsData);// al inicio todos los puntos se muestran

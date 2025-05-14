@@ -8,11 +8,11 @@ const SearchPointsOfInterest = ({ destinationId, onResults }) => { //onResults: 
     useEffect(() => {
     const fetchPoints = async () => {
         try {
-        const response = await getPointsOfInterestByDestination(destinationId);
-        setPoints(response);
-        onResults(response); //Ejecuta para pasar los resultados al componente padre.
+            const response = await getPointsOfInterestByDestination(destinationId);
+            setPoints(response);
+            onResults(response); //Ejecuta para pasar los resultados al componente padre.
         } catch (error) {
-        console.error("Error fetching points of interest:", error);
+            console.error("Error fetching points of interest:", error);
         }
     };
 
