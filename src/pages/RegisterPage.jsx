@@ -27,7 +27,7 @@ const RegisterPage = () => {
             <h2>Registro</h2>
             {error && <Alert variant="danger">{error}</Alert>}
             {success && <Alert variant="success">Usuario registrado exitosamente</Alert>}
-            <Form onSubmit={handleChange}>
+            <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-3">
                     <Form.Label>Nombre</Form.Label>
                     <Form.Control 

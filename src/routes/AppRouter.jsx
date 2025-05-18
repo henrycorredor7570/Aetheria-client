@@ -5,6 +5,7 @@ import DestinationDetail from "../pages/DestinationDetail";
 import ProfilePage from "../pages/ProfilePage";
 import NavBar from "../components/Navbar";
 import RegisterPage from "../pages/RegisterPage";
+import LoginPage from "../pages/LoginPage";
 
 const AppRouter = () => {
     return (
@@ -16,6 +17,7 @@ const AppRouter = () => {
                 <Route path="/destination/:id" element={<DestinationDetail/>}/>
                 <Route path="/profile" element={<ProfilePage/>}/>
                 <Route path="/register" element={<RegisterPage/>}/>
+                <Route path="/login" element={<LoginPage/>}/>
             </Routes>
         </BrowserRouter>
     );
