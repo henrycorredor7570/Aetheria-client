@@ -4,6 +4,7 @@ import DestinationPage from "../pages/DestinationsPage";
 import DestinationDetail from "../pages/DestinationDetail";
 import ProfilePage from "../pages/ProfilePage";
 import NavBar from "../components/Navbar";
+import RegisterPage from "../pages/RegisterPage";
 
 const AppRouter = () => {
     return (
@@ -14,6 +15,7 @@ const AppRouter = () => {
                 <Route path="/destinations" element={<DestinationPage/>}/>
                 <Route path="/destination/:id" element={<DestinationDetail/>}/>
                 <Route path="/profile" element={<ProfilePage/>}/>
+                <Route path="/register" element={<RegisterPage/>}/>
             </Routes>
         </BrowserRouter>
     );
