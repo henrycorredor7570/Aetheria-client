@@ -3,22 +3,26 @@ import { registerUser } from "../services/authService.js";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 
 const RegisterPage = () => {
+//   ****FALTA AGREGAR EL ROLE DEL USUARIO DE UN CHEKLIST PUEDE SER****
     const [ formData, setFormData ] = useState({name: "", email: "", password: ""});
     const [ error, setError ] = useState(null);
     const [ success, setSuccess ] = useState(false);
 
+    //Esta función actualiza el campo del formulario que se está editando:
     const handleChange = (e) => {
-        setFormData({ ...formData, [e.target.name]: e.target.value });
-    };
+        setFormData({ ...formData, [e.target.name]: e.target.value }); // el name no es el name del usuario como tal, 
+        // si no de los atributos que se piden en cada campo del formulario (Form.control) mas adelante: name="name", name="email", name="password"
 
+    };
+    //Funcion para el envío del formulario:
     const handleSubmit = async (e) => {
-        e.preventDefault();
+        e.preventDefault(); //Previene el comportamiento por defecto del formulario (recargar la página).
         try {
             await registerUser(formData);
             setSuccess(true);
             setError(null);
-        } catch (error){
-            setError(error || "Error al registrar usuario.");
+        } catch (err){
+            setError(err.error || "Error al registrar usuario..");
         }
     };
 
