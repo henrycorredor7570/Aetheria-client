@@ -8,12 +8,14 @@ const LoginPage  = () => {
     const [ error, setError ] = useState(null);
     const navigate = useNavigate();
 
+    //Manejo de cambios en los campos del formulario
     const handleChange = (e) => {
         setCredentials({ ...credentials, [e.target.name]: e.target.value });
     };
 
+    //Envío del formulario
     const handleSubmit = async(e) => {
-        e.preventDefault();
+        e.preventDefault();//Previene que se recargue la página al enviar el formulario.
         try {
             const data = await loginUser(credentials);
             localStorage.setItem("token", data.token); //se guarda el token el el local storage
@@ -26,7 +28,7 @@ const LoginPage  = () => {
     return(
         <Container className="mb-5">
             <h2>Iniciar Sesión</h2>
-            {error && <Alert varinat="danger">{error}</Alert>}
+            {error && <Alert variant="danger">{error}</Alert>}
             <Form onSubmit={handleSubmit}>  
                 <Form.Group className="mb-3">
                     <Form.Label>Email</Form.Label>
