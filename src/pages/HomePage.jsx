@@ -35,9 +35,31 @@ const HomePage = () => {
                                 <div style={{fontSize:'2.5rem'}}>🌍</div>
                                 <Card.Title className="mt-3">Explora el mundo</Card.Title>
                                 <Card.Text>
-                                    Sumérgete en experiencias inmersivas con tecnología de realidad aumentada integrada.
+                                    Descubre destinos turísticos únicos y vive nuevas aventuras en cada rincón del planeta.
                                 </Card.Text>
 
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={4} className="mb-4">
+                        <Card bg="light" text="dark" className="h-100 shadow-sm">
+                            <Card.Body className="text-center">
+                                <div style={{fontSize: '2.5rem'}}>🕶️</div>
+                                <Card.Title className="mt-3">Realidad aumentada</Card.Title>
+                                <Card.Text>
+                                    Sumérgete en experiencias inmersivas con tecnología de realidad aumentada integrada.
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col md={4} className="mb-4">
+                        <Card bg="light" text="dark" className="h-100 shadow-sm">
+                            <Card.Body className="text-center">
+                                <div style={{fontSize:'2.5rem'}}>⭐</div>
+                                <Card.Title className="mt-3">Reseñas y comunidad</Card.Title>
+                                <Card.Text>
+                                    Comparte tus experiencias y lee opiniones de otros viajeros para planear mejor tus viajes.
+                                </Card.Text>
                             </Card.Body>
                         </Card>
                     </Col>
