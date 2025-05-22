@@ -9,6 +9,8 @@ const HomePage = () => {
             color: 'white',
             paddingTop: '60px'
         }}>
+            
+            {/* Container de mensaje de bienvenida y cuerpo de la página */}
             <Container className='text-center'>
                 <h1 style={{ fontSize:'3rem', fontWeight:'bold', marginBottom:'1rem'}}>
                     Bienvenido a Aetheria
@@ -24,6 +26,8 @@ const HomePage = () => {
                     Registrarse
                 </Button>
             </Container>
+
+            {/* Container de las tarjetas de presentacion y descripción */}
             <Container className="mt-5">
                 <h2 className="text-center mb-4" style={{fontWeight:'bold'}}>
                     ¿Por qué elegir Aetheria?
@@ -65,6 +69,25 @@ const HomePage = () => {
                     </Col>
                 </Row>
             </Container>
+            <footer style={{
+                background: 'rgba(30, 30, 60, 0.97',
+                color:'white',
+                marginTop:'60px',
+                padding:'32px 0 12px 0',
+                borderTopLeftRadius:'32px',
+                borderTopRightRadius:'32px',
+                boxShadow:'0 -2px 24px rgba(0,0,0,0.18)'
+            }}>
+                <Container className="text-center"> 
+                    <h5 style={{fontWeight:'bold', letterSpacing:'2px', marginBottom:'12px'}}>Aetheria</h5>
+                    <div style={{fontSize:'1.7rem', margin:'10px 0'}}>
+                        <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer" style={{color:'white', margin:'0 12px', textDecoration:'none'}}>🐦</a>
+                        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={{color:'white', margin:'0 12px', textDecoration:'none'}}>📘</a>
+                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" style={{color:'white', margin:'0 12px', textDecoration:'none'}}>📸</a>
+                    </div>
+                    <small style={{opacity:0.8}}>© {new Date().getFullYear()} Aetheria. Todos los derechos reservados.</small>
+                </Container>
+            </footer>
         </div>
     );
 };
