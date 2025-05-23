@@ -1,15 +1,18 @@
 import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import fondo from "../assets/Leonardo_Phoenix_10_te_pongo_en_contexto_esta_es_mi_aplicacin_2.jpg";
 
 const HomePage = () => {
     return (
         <div style={{
-            background: 'linear-gradient(135deg, #4e54c8 0%, #8f94fb 100%',
+            position:'relative',
+            background: `linear-gradient(rgba(40,40,80,0.7), rgba(40,40,80,0.7)), url(${fondo}) center/cover no-repeat`,
             minHeight: '100vh',
             color: 'white',
-            paddingTop: '60px'
+            paddingTop: '60px',
+            backgroundAttachment: 'fixed'
         }}>
-            
+
             {/* Container de mensaje de bienvenida y cuerpo de la página */}
             <Container className='text-center'>
                 <h1 style={{ fontSize:'3rem', fontWeight:'bold', marginBottom:'1rem'}}>
@@ -41,7 +44,6 @@ const HomePage = () => {
                                 <Card.Text>
                                     Descubre destinos turísticos únicos y vive nuevas aventuras en cada rincón del planeta.
                                 </Card.Text>
-
                             </Card.Body>
                         </Card>
                     </Col>
