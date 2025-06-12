@@ -7,6 +7,7 @@ import NavBar from "../components/Navbar";
 import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import PrivateRoute from "../components/PrivateRoute";
+import VerifiedPage from "../pages/VerifiedPage";
 
 const AppRouter = () => {
     return (
@@ -19,6 +20,7 @@ const AppRouter = () => {
                 <Route path="/profile" element={<PrivateRoute><ProfilePage/></PrivateRoute>}/>
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
+                <Route path="/verified" element={<VerifiedPage/>}/>
             </Routes>
         </BrowserRouter>
     );
