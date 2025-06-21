@@ -98,13 +98,19 @@ const DestinationDetail = () => {
             <Row className='mt-4'>
                 <Col> 
                     <h4>Realidad Aumentada</h4>
-                    <button 
-                        className="btn btn-primary"
-                        onClick={() => handleSelectModel(destination.arModelUrl)}
-                    >
-                        Ver en AR
-                    </button>
-                    {selectedModel && <ARViewer modelUrl={selectedModel}/>}
+                    {destination.model_url ? (
+                        <>
+                            <button 
+                                className="btn btn-primary"
+                                onClick={() => handleSelectModel(destination.model_url)}
+                            >
+                                Ver en AR
+                            </button>
+                            {selectedModel && <ARViewer modelUrl={selectedModel}/>}
+                        </>
+                    ) : (
+                        <p>No hay modelo 3D disponible para este destino.</p>
+                    )}
                 </Col>
             </Row>
         </Container>
