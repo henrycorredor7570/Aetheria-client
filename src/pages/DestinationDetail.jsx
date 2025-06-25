@@ -98,11 +98,11 @@ const DestinationDetail = () => {
             <Row className='mt-4'>
                 <Col> 
                     <h4>Realidad Aumentada</h4>
-                    {destination.model_url ? (
+                    {destination.arModels && destination.arModels.length > 0 ? (
                         <>
                             <button 
                                 className="btn btn-primary"
-                                onClick={() => handleSelectModel(destination.model_url)}
+                                onClick={() => handleSelectModel(destination.arModels[0].model_url)}
                             >
                                 Ver en AR
                             </button>
