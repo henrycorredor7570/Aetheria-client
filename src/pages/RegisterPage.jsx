@@ -1,10 +1,21 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { registerUser } from "../services/authService.js";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 
 const RegisterPage = () => {
 //   ****FALTA AGREGAR EL ROLE DEL USUARIO DE UN CHEKLIST PUEDE SER****
-    const [ formData, setFormData ] = useState({name: "", email: "", password: ""});
+    const [ formData, setFormData ] = useState({
+        username: "",
+        email: "", 
+        password: "",
+        confirm_password: "",
+        first_name: "",
+        last_name: "",
+        birth_date: "",
+        gender: "",
+        profile_picture: "",
+        terms: false
+    });
     const [ error, setError ] = useState(null);
     const [ success, setSuccess ] = useState(false);
 

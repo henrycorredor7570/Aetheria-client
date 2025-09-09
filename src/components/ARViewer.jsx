@@ -2,6 +2,7 @@ import React from 'react';
 import { Entity, Scene } from "aframe-react";
 
 const ARViewer = ({ modelUrl }) => {
+    console.log(modelUrl)
     return (
         <div style={{width: "100%", height: "500px", margin: "auto"}}>
             <h3>Explora en Realidad Aumentada</h3>
