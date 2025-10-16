@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { registerUser } from "../services/authService.js";
 import { Container, Form, Button, Alert, Row, Col } from "react-bootstrap";
 
+
 /**
  * Página de registro de usuario.
  * Este formulario recoge todos los datos requeridos por el backend para crear un usuario.

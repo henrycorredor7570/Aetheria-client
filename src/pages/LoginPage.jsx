@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { loginUser } from "../services/authService.js";
 import { Container, Form, Button, Alert } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import GoogleLoginButton from "../components/GoogleLoginButton";
 
 const LoginPage  = () => {
     const [credentials, setCredentials ] = useState({email: "",password: ""});
@@ -25,6 +26,20 @@ const LoginPage  = () => {
         }
     };
 
+    /*
+    1. Detecta si hay un token en la URL.
+    2. Lo guarda en localStorage.
+    3. Luego te manda a la página /profile.
+    */
+    useEffect(() => {
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get("token");
+        if (token) {
+            localStorage.setItem("token", token);
+            navigate("/profile");
+        }
+    }, [navigate]);
+
     return(
         <Container className="mb-5">
             <h2>Iniciar Sesión</h2>
@@ -38,7 +53,7 @@ const LoginPage  = () => {
                         value={credentials.email}
                         onChange={handleChange}
                         required
-                    />
+                        />
                 </Form.Group>
                 <Form.Group className="mb-3">
                     <Form.Label>Contraseña</Form.Label>
@@ -48,9 +63,10 @@ const LoginPage  = () => {
                         value={credentials.password}
                         onChange={handleChange}
                         required
-                    />
+                        />
                 </Form.Group>
                 <Button type="submit">Iniciar Sesión</Button>
+                <GoogleLoginButton/>
             </Form>
         </Container>
     )
