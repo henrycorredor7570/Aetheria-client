@@ -1,0 +1,36 @@
+.hero-container {
+    height: 100vh;
+    background-image: url("https://images.unsplash.com/photo-1501785888041-af3ef285b470");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+}
+
+.hero-overlay {
+    background: rgba(0,0,0,0.6);
+    height: 100%;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    padding: 20px;
+}
+
+.hero-overlay h1 {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.hero-overlay p {
+    max-width: 600px;
+    margin: 20px 0;
+}
+
+.search-bar {
+    width: 100%;
+    max-width: 500px;
+}

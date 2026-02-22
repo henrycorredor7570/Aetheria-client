@@ -1,3 +1,5 @@
+import React from "react";
+import Hero from "../components/Hero/Hero";
 import { Container, Button, Row, Col, Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import fondo from "../assets/Leonardo_Phoenix_10_te_pongo_en_contexto_esta_es_mi_aplicacin_2.jpg";
@@ -12,24 +14,9 @@ const HomePage = () => {
             paddingTop: '60px',
             backgroundAttachment: 'fixed'
         }}>
-
             {/* Container de mensaje de bienvenida y cuerpo de la página */}
-            <Container className='text-center'>
-                <h1 style={{ fontSize:'3rem', fontWeight:'bold', marginBottom:'1rem'}}>
-                    Bienvenido a Aetheria
-                </h1>
-                <p style={{fontSize:'1.3rem', marginBottom:'2rem'}}>
-                    Explora destinos turísticos de todo el mundo con realidad aumentada.<br/>
-                    Vive experiencias inmersivas, descubre puntos de interés y comparte tus aventuras.
-                </p>
-                <Button variant='light' as={Link} to='/destinations' size="lg" className="me-2"> 
-                    Explorar Destinos
-                </Button>
-                <Button variant="outline-light" as={Link} to={'/register'} size='lg'>
-                    Registrarse
-                </Button>
-            </Container>
-
+            <Hero></Hero>
+            
             {/* Container de las tarjetas de presentacion y descripción */}
             <Container className="mt-5">
                 <h2 className="text-center mb-4" style={{fontWeight:'bold'}}>
