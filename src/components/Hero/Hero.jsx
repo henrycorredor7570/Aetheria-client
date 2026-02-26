@@ -13,7 +13,7 @@ import "./Hero.css";
  */
 
 const Hero = () => {
-    //Funcion que rebibe la busqueda
+    //Funcion que recibe la busqueda
     const handleSearch = (query) => {
         console.log("Buscando:", query);
 
