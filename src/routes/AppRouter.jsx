@@ -8,6 +8,9 @@ import RegisterPage from "../pages/RegisterPage";
 import LoginPage from "../pages/LoginPage";
 import PrivateRoute from "../components/PrivateRoute";
 import VerifiedPage from "../pages/VerifiedPage";
+import CreateDestination from "../pages/CreateDestination";
+
+
 
 const AppRouter = () => {
     return (
@@ -21,6 +24,7 @@ const AppRouter = () => {
                 <Route path="/register" element={<RegisterPage/>}/>
                 <Route path="/login" element={<LoginPage/>}/>
                 <Route path="/verified" element={<VerifiedPage/>}/>
+                <Route path="/admin/create" element={<CreateDestination/>}/>
             </Routes>
         </BrowserRouter>
     );

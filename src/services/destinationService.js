@@ -45,7 +45,6 @@ export const getPointsOfInterestByDestination = async (id) => {
  * Ejemplo: searchDestinations("París") 
  * Busca en: nombre, descripción y país
  */
-
 export const searchDestinations = async (query) => {
     try {
         // Si no hay query, retorna un array vacío
@@ -66,3 +65,18 @@ export const searchDestinations = async (query) => {
         return [];
     }
 };
+
+export const createDestination = async (formData) => {
+    try {
+        const response = await axios.post(`${API_URL}/destinations`, formData , {
+            headers:{
+                "Content-Type": "multipart/form-data",
+            },
+        });
+
+        return response.data;
+    } catch(error){
+        throw error.response?.data || error.message;
+    }
+}
+
